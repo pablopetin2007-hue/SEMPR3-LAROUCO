@@ -21,10 +21,35 @@ elementos.forEach((el)=>{
     observer.observe(el);
 
 });
-// Código de las animaciones
-const elementos = document.querySelectorAll(".oculto");
-// ...
-
-// Código del lightbox
 const imagenes = document.querySelectorAll(".imagenes img");
-// ...
+
+const lightbox = document.getElementById("lightbox");
+const imagenGrande = document.getElementById("imagenGrande");
+const cerrar = document.querySelector(".cerrar");
+
+imagenes.forEach((img)=>{
+
+    img.addEventListener("click",()=>{
+
+        lightbox.style.display="flex";
+        imagenGrande.src=img.src;
+
+    });
+
+});
+
+cerrar.addEventListener("click",()=>{
+
+    lightbox.style.display="none";
+
+});
+
+lightbox.addEventListener("click",(e)=>{
+
+    if(e.target===lightbox){
+
+        lightbox.style.display="none";
+
+    }
+
+});
