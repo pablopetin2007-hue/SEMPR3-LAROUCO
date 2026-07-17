@@ -529,6 +529,37 @@ CONTACTO
     padding-left:8px;
 
 }
+.boton{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    background:#8B1E3F;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border-radius:40px;
+
+    transition:all .3s ease;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+}
+
+.boton:hover{
+
+    background:#a5224d;
+
+    color:#ffffff;
+
+    transform:translateY(-4px);
+
+}
 .datos .boton{
 
     display:inline-block;
