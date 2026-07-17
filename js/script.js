@@ -1,28 +1,23 @@
-// Botón volver arriba
+const elementos = document.querySelectorAll(".oculto");
 
-const btnTop = document.getElementById("btnTop");
+const observer = new IntersectionObserver((entradas)=>{
 
-window.addEventListener("scroll", () => {
+    entradas.forEach((entrada)=>{
 
-    if(window.scrollY > 400){
+        if(entrada.isIntersecting){
 
-        btnTop.style.display = "block";
+            entrada.target.classList.add("mostrar");
 
-    }else{
-
-        btnTop.style.display = "none";
-
-    }
-
-});
-
-btnTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top:0,
-        behavior:"smooth"
+        }
 
     });
+
+},{
+    threshold:0.15
+});
+
+elementos.forEach((el)=>{
+
+    observer.observe(el);
 
 });
