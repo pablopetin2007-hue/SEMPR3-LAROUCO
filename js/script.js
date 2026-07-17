@@ -21,3 +21,10 @@ elementos.forEach((el)=>{
     observer.observe(el);
 
 });
+// Código de las animaciones
+const elementos = document.querySelectorAll(".oculto");
+// ...
+
+// Código del lightbox
+const imagenes = document.querySelectorAll(".imagenes img");
+// ...
