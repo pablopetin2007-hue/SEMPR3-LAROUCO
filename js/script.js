@@ -65,3 +65,45 @@ window.addEventListener("scroll", () => {
     }
 
 });
+const contadores = document.querySelectorAll(".contador");
+
+const observerContadores = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        const contador = entry.target;
+        const objetivo = +contador.dataset.numero;
+
+        let numero = 0;
+
+        const incremento = objetivo / 80;
+
+        const actualizar = () => {
+
+            numero += incremento;
+
+            if (numero < objetivo) {
+
+                contador.textContent = Math.floor(numero);
+
+                requestAnimationFrame(actualizar);
+
+            } else {
+
+                contador.textContent = objetivo;
+
+            }
+
+        };
+
+        actualizar();
+
+        observerContadores.unobserve(contador);
+
+    });
+
+}, { threshold: .5 });
+
+contadores.forEach(c => observerContadores.observe(c));
